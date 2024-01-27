@@ -15,5 +15,5 @@ MonoBehaviour:
   type: 0
   prefab: {fileID: 7540744601869825533, guid: cd3b77266294de34da28aa79742bed96, type: 3}
   maxSpeed: 10
-  jumpTakeOffSpeed: 10
-  gravityModifier: 1.5
+  jumpTakeOffSpeed: 6
+  gravityModifier: 3

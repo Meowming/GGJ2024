@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,12 @@ namespace GameLogic.GameLaunch {
             DontDestroyOnLoad(this);
 
             InitDebugConsole();
+            InitSingletons();
             GameStartUp();
+        }
+        
+        private void InitSingletons() {
+            gameObject.AddComponent<Scheduler>();
         }
 
         private void InitDebugConsole() {

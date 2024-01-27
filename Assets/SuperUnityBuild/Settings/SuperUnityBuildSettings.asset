@@ -82,7 +82,11 @@ MonoBehaviour:
           sceneActive: 1
         - fileGUID: 5b42e292395f1014aa94ad113baa1f1b
           sceneActive: 1
-        - fileGUID: 2cda990e2423bbf4892e6590ba056729
+        - fileGUID: b08f6662bd23b85499a268f0c87e22e5
+          sceneActive: 1
+        - fileGUID: 460bad1238adc8045b7387e3f72ef0a3
+          sceneActive: 1
+        - fileGUID: ec9fcfc2d904b754ba082c22ec22d2c9
           sceneActive: 1
     - typeName: Release
       bundleIdentifier: com.unity.template.platformer
@@ -98,7 +102,11 @@ MonoBehaviour:
           sceneActive: 1
         - fileGUID: 5b42e292395f1014aa94ad113baa1f1b
           sceneActive: 1
-        - fileGUID: 2cda990e2423bbf4892e6590ba056729
+        - fileGUID: b08f6662bd23b85499a268f0c87e22e5
+          sceneActive: 1
+        - fileGUID: 460bad1238adc8045b7387e3f72ef0a3
+          sceneActive: 1
+        - fileGUID: ec9fcfc2d904b754ba082c22ec22d2c9
           sceneActive: 1
   _platformList:
     platforms:

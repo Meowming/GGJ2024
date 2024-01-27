@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Config;
 using UnityEngine;
 using Platformer.Gameplay;
 using static Platformer.Core.Simulation;
 using Platformer.Model;
 using Platformer.Core;
+using Random = UnityEngine.Random;
 
 namespace Platformer.Mechanics
 {
@@ -21,10 +23,12 @@ namespace Platformer.Mechanics
         /// <summary>
         /// Max horizontal speed of the player.
         /// </summary>
+        [NonSerialized]
         public float maxSpeed = 7;
         /// <summary>
         /// Initial jump velocity at the start of a jump.
         /// </summary>
+        [NonSerialized]
         public float jumpTakeOffSpeed = 7;
 
         public JumpState jumpState = JumpState.Grounded;
@@ -53,6 +57,7 @@ namespace Platformer.Mechanics
         
         private static readonly int Grounded = Animator.StringToHash("grounded");
         private static readonly int VelocityX = Animator.StringToHash("velocityX");
+        private static readonly int Victory = Animator.StringToHash("victory");
         private AnimalForm CurrentForm => animalForms[currentFormIndex];
 
         void Awake()
@@ -60,8 +65,7 @@ namespace Platformer.Mechanics
             health = GetComponent<Health>();
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
-            // spriteRenderer = GetComponent<SpriteRenderer>();
-            // animator = GetComponent<Animator>();
+            
             SetForm(0);
         }
 
@@ -91,6 +95,12 @@ namespace Platformer.Mechanics
             }
             UpdateJumpState();
             base.Update();
+        }
+
+        public void OnVictory() {
+            animator.SetTrigger(Victory);
+            controlEnabled = false;
+            StopCoroutine(formLoopCoroutine);
         }
         
         private void SetForm(int index) {

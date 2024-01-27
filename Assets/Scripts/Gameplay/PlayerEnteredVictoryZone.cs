@@ -1,6 +1,9 @@
+using System.Collections;
+using Core;
 using Platformer.Core;
 using Platformer.Mechanics;
 using Platformer.Model;
+using UnityEngine;
 
 namespace Platformer.Gameplay
 {
@@ -19,6 +22,17 @@ namespace Platformer.Gameplay
         {
             model.player.animator.SetTrigger("victory");
             model.player.controlEnabled = false;
+
+            if (!string.IsNullOrEmpty(victoryZone.nextLevelSceneName)) {
+                Scheduler.Instance.StartCoroutine(DelayedLoadLevel(victoryZone.nextLevelSceneName, 
+                    victoryZone.switchSceneDelay));
+            }
+        }
+        
+        private IEnumerator DelayedLoadLevel(string levelName, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(levelName);
         }
     }
 }
