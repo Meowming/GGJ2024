@@ -1,6 +1,5 @@
-using Platformer.Gameplay;
+using System.Collections;
 using UnityEngine;
-using static Platformer.Core.Simulation;
 
 namespace Platformer.Mechanics
 {
@@ -9,14 +8,28 @@ namespace Platformer.Mechanics
     /// </summary>
     public class VictoryZone : MonoBehaviour
     {
+        public string nextLevelSceneName;
+        public float switchSceneDelay = 3f;
+        
         void OnTriggerEnter2D(Collider2D collider)
         {
-            var p = collider.gameObject.GetComponent<PlayerController>();
-            if (p != null)
+            var player = collider.gameObject.GetComponent<PlayerController>();
+            if (player != null)
             {
-                var ev = Schedule<PlayerEnteredVictoryZone>();
-                ev.victoryZone = this;
+                // var ev = Schedule<PlayerEnteredVictoryZone>();
+                // ev.victoryZone = this;
+                
+                player.OnVictory();
+                if (!string.IsNullOrEmpty(nextLevelSceneName)) {
+                    StartCoroutine(DelayedLoadLevel(nextLevelSceneName, switchSceneDelay));
+                }
             }
+        }
+        
+        private IEnumerator DelayedLoadLevel(string levelName, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(levelName);
         }
     }
 }
