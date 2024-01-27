@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.github.superunitybuild.buildactions": "file:../CustomPackages/buildactions-4.0.1",
+    "com.github.superunitybuild.buildtool": "file:../CustomPackages/buildtool-7.0.0",
     "com.unity.cinemachine": "2.9.7",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.connect.share": "4.2.3",
