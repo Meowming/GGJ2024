@@ -17,3 +17,13 @@ MonoBehaviour:
   maxSpeed: 10
   jumpTakeOffSpeed: 6
   gravityModifier: 3
+  skills:
+  - name: Skill1
+    actions:
+    - rid: 180327130410778626
+  references:
+    version: 2
+    RefIds:
+    - rid: 180327130410778626
+      type: {class: CastDamage, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data: 

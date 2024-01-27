@@ -11,5 +11,7 @@ namespace Config {
         public float maxSpeed = 7f;
         public float jumpTakeOffSpeed = 10f;
         public float gravityModifier = 1f;
+
+        public Skill[] skills;
     }
 }
