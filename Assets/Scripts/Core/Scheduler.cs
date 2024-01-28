@@ -3,9 +3,9 @@ using UnityEngine.Events;
 
 namespace Core {
     public class Scheduler : MonoBehaviour {
-        public UnityEvent onStart;
-        public UnityEvent onUpdate;
-        public UnityEvent onDestroy;
+        public UnityEvent onStart = new();
+        public UnityEvent onUpdate = new();
+        public UnityEvent onDestroy = new();
         
         private static Scheduler instance;
         public static Scheduler Instance {

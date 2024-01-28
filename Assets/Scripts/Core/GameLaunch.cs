@@ -27,7 +27,7 @@ namespace GameLogic.GameLaunch {
         private void GameStartUp() {
             Application.targetFrameRate = 60;
 
-            SceneManager.LoadSceneAsync("TestLevel");
+            SceneManager.LoadSceneAsync("StartScenes");
         }
     }
 }
