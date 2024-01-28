@@ -1,5 +1,6 @@
 ﻿using System;
 using Config.SkillActions;
+using Config.SkillSearch;
 using Const;
 using Core;
 using UnityEngine;
@@ -11,10 +12,10 @@ namespace Config {
         public string name;
         public float cooldown;
         public float duration;
-        public bool lockForm;
+        public bool lockForm = true;
 
-        // public SkillState SkillState { get; private set; } = SkillState.Ready;
-        // public float Timer { get; private set; }
+        [SerializeReference]
+        public SkillSearchBase skillSearch;
         
         [SerializeReference]
         public SkillActionBase[] actions;
@@ -33,6 +34,9 @@ namespace Config {
             context.SkillState = SkillState.Executing;
             context.Timer = 0f;
             context.skill = this;
+            
+            skillSearch?.DoSearch(context);
+            
             foreach (var action in actions) {
                 action.Execute(context);
             }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8509783501685719824}
   - component: {fileID: 6082575806313374961}
   - component: {fileID: 9055298666153167596}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -62,6 +62,8 @@ MonoBehaviour:
   animalForms:
   - {fileID: 11400000, guid: be17a27d28b27fc4c9ae6247db341807, type: 2}
   - {fileID: 11400000, guid: 76c9e277ca2decc489c93dfd29137634, type: 2}
+  - {fileID: 11400000, guid: ccbd1082d6e331041966f27f23176c22, type: 2}
+  - {fileID: 11400000, guid: e7d5da0431e90ee438d505fdcc405966, type: 2}
   formChangeTime: 5
   formTransformEffectPrefab: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140,
     type: 3}
@@ -233,6 +235,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0010106565, y: 0.0004841091}
-  m_Size: {x: 1.1131331, y: 0.5683083}
+  m_Offset: {x: -0.0010106826, y: 0.2813125}
+  m_Size: {x: 1.1131333, y: 0.55385643}
   m_Direction: 1

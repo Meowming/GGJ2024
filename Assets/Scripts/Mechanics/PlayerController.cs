@@ -144,12 +144,8 @@ namespace Platformer.Mechanics
                 return;
             }
             
-            if (runningSkillContexts.TryGetValue(index, out var skillContext)) {
-                if (skillContext.SkillState == SkillState.Finished) {
-                    runningSkillContexts.Remove(index);
-                } else {
-                    return;
-                }
+            if (runningSkillContexts.Count > 0) {
+                return;
             }
             
             var skill = CurrentForm.skills[index];
@@ -167,6 +163,10 @@ namespace Platformer.Mechanics
         public void TakeDamage(int damage) {
             health.Decrement(damage);
             animator.SetTrigger(Hurt);
+        }
+        
+        public Vector2 GetFaceDirection() {
+            return spriteRenderer.flipX ^ defaultFlipX ? Vector2.left : Vector2.right;
         }
         
         private void SetForm(int index) {

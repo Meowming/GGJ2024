@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07276fef37e141d0a1dc37936fc896e8, type: 3}
-  m_Name: TurtleForm
+  m_Name: Turtle
   m_EditorClassIdentifier: 
   type: 0
   prefab: {fileID: 7540744601869825533, guid: cd3b77266294de34da28aa79742bed96, type: 3}
@@ -22,18 +22,25 @@ MonoBehaviour:
     cooldown: 0
     duration: 0.3
     lockForm: 1
+    skillSearch:
+      rid: 180327142003310611
     actions:
     - rid: 180327142003310601
     - rid: 180327142003310606
+    - rid: 180327142003310612
   - name: SpinAttack
     cooldown: 0
     duration: 5
     lockForm: 1
+    skillSearch:
+      rid: -2
     actions:
     - rid: 180327142003310609
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 180327142003310601
       type: {class: SetAnimation, ns: Config.SkillActions, asm: Assembly-CSharp}
       data:
@@ -61,3 +68,13 @@ MonoBehaviour:
         reset: 1
         name: spinAttack
         value: 1
+    - rid: 180327142003310611
+      type: {class: SkillSearchBox, ns: Config.SkillSearch, asm: Assembly-CSharp}
+      data:
+        center: {x: 0, y: 0}
+        size: {x: 1, y: 1}
+        distance: 5
+    - rid: 180327142003310612
+      type: {class: CastDamage, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        damage: 1
