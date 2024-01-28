@@ -25,6 +25,12 @@ MonoBehaviour:
     actions:
     - rid: 180327142003310601
     - rid: 180327142003310606
+  - name: SpinAttack
+    cooldown: 0
+    duration: 5
+    lockForm: 1
+    actions:
+    - rid: 180327142003310609
   references:
     version: 2
     RefIds:
@@ -44,3 +50,14 @@ MonoBehaviour:
         prefab: {fileID: 3308840082544497919, guid: af0ef20d9a41ee7479f76ea5c49918cf,
           type: 3}
         delay: 0
+    - rid: 180327142003310609
+      type: {class: SetAnimation, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        actions:
+        - rid: 180327142003310610
+    - rid: 180327142003310610
+      type: {class: SetAnimationBool, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        reset: 1
+        name: spinAttack
+        value: 1

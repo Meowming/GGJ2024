@@ -115,6 +115,22 @@ namespace Platformer.Mechanics
             }
             UpdateJumpState();
             base.Update();
+
+            if (willChangeForm) {
+                SetRandomForm();
+                willChangeForm = false;
+            }
+
+            var toRemove = new List<int>();
+            foreach (var (i, skillContext) in runningSkillContexts) {
+                if (skillContext.SkillState == SkillState.Finished) {
+                    toRemove.Add(i);
+                }
+            }
+            
+            foreach (var i in toRemove) {
+                runningSkillContexts.Remove(i);
+            }
         }
 
         public void OnVictory() {
@@ -154,7 +170,12 @@ namespace Platformer.Mechanics
         }
         
         private void SetForm(int index) {
-            if (currentFormIndex == index || isLockForm) {
+            if (currentFormIndex == index) {
+                return;
+            }
+
+            if (isLockForm) {
+                willChangeForm = true;
                 return;
             }
             
@@ -177,7 +198,7 @@ namespace Platformer.Mechanics
         }
         
         private void SetRandomForm() {
-            if (isLockForm || animalForms.Length < 2) {
+            if (animalForms.Length < 2) {
                 return;
             }
 

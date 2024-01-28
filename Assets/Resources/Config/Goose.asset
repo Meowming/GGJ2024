@@ -10,10 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07276fef37e141d0a1dc37936fc896e8, type: 3}
-  m_Name: AnimalForm2
+  m_Name: Goose
   m_EditorClassIdentifier: 
   type: 1
   prefab: {fileID: 7540744601869825533, guid: a8bf6589498b3024482da7190da779df, type: 3}
   maxSpeed: 5
   jumpTakeOffSpeed: 10
   gravityModifier: 1
+  skills:
+  - name: Attack1
+    cooldown: 0
+    duration: 0.3
+    lockForm: 1
+    actions:
+    - rid: 180327142003310607
+  references:
+    version: 2
+    RefIds:
+    - rid: 180327142003310607
+      type: {class: SetAnimation, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        actions:
+        - rid: 180327142003310608
+    - rid: 180327142003310608
+      type: {class: SetAnimationTrigger, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        reset: 1
+        name: attack1

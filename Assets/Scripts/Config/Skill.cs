@@ -25,6 +25,10 @@ namespace Config {
             if (context.SkillState != SkillState.Ready) {
                 return;
             }
+
+            if (lockForm) {
+                context.playerController.SetLockForm(true);
+            }
             
             context.SkillState = SkillState.Executing;
             context.Timer = 0f;
@@ -60,6 +64,10 @@ namespace Config {
         public void Finish(SkillContext context) {
             foreach (var action in actions) {
                 action.Finish(context);
+            }
+            
+            if (lockForm) {
+                context.playerController.SetLockForm(false);
             }
             
             context.SkillState = SkillState.Cooldown;
