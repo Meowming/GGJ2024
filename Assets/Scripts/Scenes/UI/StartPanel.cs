@@ -17,11 +17,7 @@ public class StartPanel : BasePanel
         {
             UIManager.Instance.HidePanel<StartPanel>();
 
-            UIManager.Instance.ShowPanel<TransitionPanel>();
-
-            SceneManager.LoadScene("BeginScenes");  
-            
-            UIManager.Instance.ShowPanel<Level1Panel>();
+            SceneManager.LoadScene("Level1");
         });
 
         SettingButton.onClick.AddListener(() =>

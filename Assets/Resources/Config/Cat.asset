@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07276fef37e141d0a1dc37936fc896e8, type: 3}
+  m_Name: Cat
+  m_EditorClassIdentifier: 
+  type: 1
+  prefab: {fileID: 7540744601869825533, guid: cbacec922ab79ef429a750c356044b7f, type: 3}
+  maxSpeed: 5
+  jumpTakeOffSpeed: 10
+  gravityModifier: 1
+  skills:
+  - name: Attack1
+    cooldown: 0
+    duration: 0.3
+    lockForm: 1
+    skillSearch:
+      rid: 180327142003310621
+    actions:
+    - rid: 180327142003310607
+    - rid: 180327142003310622
+    - rid: 180327142003310623
+  - name: Dash
+    cooldown: 0
+    duration: 0.3
+    lockForm: 1
+    skillSearch:
+      rid: -2
+    actions:
+    - rid: 180327142003310617
+    - rid: 180327142003310620
+    - rid: 180327142003310624
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 180327142003310607
+      type: {class: SetAnimation, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        actions:
+        - rid: 180327142003310608
+    - rid: 180327142003310608
+      type: {class: SetAnimationTrigger, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        reset: 1
+        name: attack1
+    - rid: 180327142003310617
+      type: {class: SetAnimation, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        actions:
+        - rid: 180327142003310618
+    - rid: 180327142003310618
+      type: {class: SetAnimationTrigger, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        reset: 1
+        name: dash
+    - rid: 180327142003310620
+      type: {class: AddVelocity, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        velocity: {x: 10, y: 0}
+    - rid: 180327142003310621
+      type: {class: SkillSearchBox, ns: Config.SkillSearch, asm: Assembly-CSharp}
+      data:
+        center: {x: 0, y: 0}
+        size: {x: 1, y: 1}
+        distance: 2
+    - rid: 180327142003310622
+      type: {class: CastDamage, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        damage: 1
+    - rid: 180327142003310623
+      type: {class: PlayEffect, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        prefab: {fileID: 2427786012956944610, guid: da0de216ad60c5d46a6b049d61961615,
+          type: 3}
+        offset: {x: 1, y: 1.5}
+        delay: 0
+    - rid: 180327142003310624
+      type: {class: PlayEffect, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        prefab: {fileID: 4301057783707249758, guid: 74ccf31d718fbea49a5c201d4b7c5af2,
+          type: 3}
+        offset: {x: 0, y: 0}
+        delay: 0
