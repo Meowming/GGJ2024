@@ -7,10 +7,7 @@ public class Main : MonoBehaviour
     void Start()
     {
         UIManager.Instance.ShowPanel<StartPanel>();
-    }
 
-    void Update()
-    {
-        
+        //UIManager.Instance.ShowPanel<SettingPanel>();
     }
 }
