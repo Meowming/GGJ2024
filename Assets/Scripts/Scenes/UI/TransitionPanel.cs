@@ -12,17 +12,15 @@ public class TransitionPanel : BasePanel
 
     private void Load()
     {
-            StartCoroutine(Loadscence(name));
+            StartCoroutine(Loadscence());
     }
-    IEnumerator Loadscence(string name)
+    IEnumerator Loadscence()
     {
+        yield return new WaitForSeconds(1);
+
         UIManager.Instance.HidePanel<TransitionPanel>();
 
-        yield return new WaitForSeconds(3);
-
-        SceneManager.LoadScene(name);
-
-        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Level1");
 
         UIManager.Instance.ShowPanel<Level1Panel>();
     }
