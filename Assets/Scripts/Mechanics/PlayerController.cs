@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using Config;
+using Config.SkillActions;
+using Const;
 using UnityEngine;
 using Platformer.Gameplay;
 using static Platformer.Core.Simulation;
@@ -41,6 +44,7 @@ namespace Platformer.Mechanics
         bool jump;
         Vector2 move;
         SpriteRenderer spriteRenderer;
+        private bool defaultFlipX;
         internal Animator animator;
         readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
@@ -51,13 +55,19 @@ namespace Platformer.Mechanics
         public GameObject formTransformEffectPrefab;
         
         private int currentFormIndex = -1;
+        private bool isLockForm;
+        private bool willChangeForm;
         private GameObject visual;
         private Coroutine formLoopCoroutine;
         private WaitForSeconds formChangeWait;
+
+        // private SkillState skillState;
+        private readonly Dictionary<int, SkillContext> runningSkillContexts = new();
         
         private static readonly int Grounded = Animator.StringToHash("grounded");
         private static readonly int VelocityX = Animator.StringToHash("velocityX");
         private static readonly int Victory = Animator.StringToHash("victory");
+        private static readonly int Hurt = Animator.StringToHash("hurt");
         private AnimalForm CurrentForm => animalForms[currentFormIndex];
 
         void Awake()
@@ -67,6 +77,7 @@ namespace Platformer.Mechanics
             collider2d = GetComponent<Collider2D>();
             
             SetForm(0);
+            // skillState = SkillState.Ready;
         }
 
         protected override void Start() {
@@ -87,6 +98,15 @@ namespace Platformer.Mechanics
                 {
                     stopJump = true;
                     Schedule<PlayerStopJump>().player = this;
+                } else if (Input.GetButtonDown("Fire1"))
+                {
+                    CastSkill(0);
+                } else if (Input.GetButtonDown("Fire2"))
+                {
+                    CastSkill(1);
+                } else if (Input.GetButtonDown("Fire3"))
+                {
+                    CastSkill(2);
                 }
             }
             else
@@ -102,9 +122,39 @@ namespace Platformer.Mechanics
             controlEnabled = false;
             StopCoroutine(formLoopCoroutine);
         }
+
+        public void CastSkill(int index) {
+            if (index < 0 || index >= CurrentForm.skills.Length) {
+                return;
+            }
+            
+            if (runningSkillContexts.TryGetValue(index, out var skillContext)) {
+                if (skillContext.SkillState == SkillState.Finished) {
+                    runningSkillContexts.Remove(index);
+                } else {
+                    return;
+                }
+            }
+            
+            var skill = CurrentForm.skills[index];
+            var context = new SkillContext {
+                playerController = this,
+            };
+            runningSkillContexts.Add(index, context);
+            skill?.Execute(context);
+        }
+        
+        public void SetLockForm(bool value) {
+            isLockForm = value;
+        }
+        
+        public void TakeDamage(int damage) {
+            health.Decrement(damage);
+            animator.SetTrigger(Hurt);
+        }
         
         private void SetForm(int index) {
-            if (currentFormIndex == index) {
+            if (currentFormIndex == index || isLockForm) {
                 return;
             }
             
@@ -116,6 +166,7 @@ namespace Platformer.Mechanics
             visual = Instantiate(CurrentForm.prefab, transform);
             spriteRenderer = visual.GetComponent<SpriteRenderer>();
             animator = visual.GetComponent<Animator>();
+            defaultFlipX = spriteRenderer.flipX;
             
             jumpTakeOffSpeed = CurrentForm.jumpTakeOffSpeed;
             maxSpeed = CurrentForm.maxSpeed;
@@ -126,7 +177,7 @@ namespace Platformer.Mechanics
         }
         
         private void SetRandomForm() {
-            if (animalForms.Length < 2) {
+            if (isLockForm || animalForms.Length < 2) {
                 return;
             }
 
@@ -193,9 +244,9 @@ namespace Platformer.Mechanics
             }
 
             if (move.x > 0.01f)
-                spriteRenderer.flipX = false;
+                spriteRenderer.flipX = defaultFlipX;
             else if (move.x < -0.01f)
-                spriteRenderer.flipX = true;
+                spriteRenderer.flipX = !defaultFlipX;
 
             animator.SetBool(Grounded, IsGrounded);
             animator.SetFloat(VelocityX, Mathf.Abs(velocity.x) / maxSpeed);
