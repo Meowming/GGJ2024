@@ -6,6 +6,7 @@ namespace Config.SkillActions {
     [Serializable]
     public class PlayEffect: SkillActionBase {
         public GameObject prefab;
+        public Vector2 offset;
         public float delay;
         
         private GameObject effect;
@@ -25,7 +26,9 @@ namespace Config.SkillActions {
             if (player == null) return;
 
             var transform = player.transform;
-            var position = transform.position;
+            var direction = player.GetFaceDirection();
+            var directionOffset = new Vector3(direction.x * offset.x, offset.y);
+            var position = transform.position + directionOffset;
             var rotation = transform.rotation;
             effect = Object.Instantiate(prefab, position, rotation);
             Object.Destroy(effect, 5f);

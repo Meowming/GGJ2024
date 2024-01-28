@@ -22,8 +22,12 @@ MonoBehaviour:
     cooldown: 0
     duration: 0.3
     lockForm: 1
+    skillSearch:
+      rid: 180327142003310625
     actions:
     - rid: 180327142003310607
+    - rid: 180327142003310626
+    - rid: 180327142003310627
   references:
     version: 2
     RefIds:
@@ -37,3 +41,20 @@ MonoBehaviour:
       data:
         reset: 1
         name: attack1
+    - rid: 180327142003310625
+      type: {class: SkillSearchBox, ns: Config.SkillSearch, asm: Assembly-CSharp}
+      data:
+        center: {x: 0, y: 0}
+        size: {x: 1, y: 1}
+        distance: 2
+    - rid: 180327142003310626
+      type: {class: CastDamage, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        damage: 1
+    - rid: 180327142003310627
+      type: {class: PlayEffect, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        prefab: {fileID: 3308840082544497919, guid: af0ef20d9a41ee7479f76ea5c49918cf,
+          type: 3}
+        offset: {x: 1, y: 1.5}
+        delay: 0

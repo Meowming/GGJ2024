@@ -56,6 +56,7 @@ MonoBehaviour:
       data:
         prefab: {fileID: 3308840082544497919, guid: af0ef20d9a41ee7479f76ea5c49918cf,
           type: 3}
+        offset: {x: -1, y: 0.5}
         delay: 0
     - rid: 180327142003310609
       type: {class: SetAnimation, ns: Config.SkillActions, asm: Assembly-CSharp}

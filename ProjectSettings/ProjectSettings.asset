@@ -163,12 +163,12 @@ PlayerSettings:
   applicationIdentifier:
     Standalone: com.unity.template.platformer
   buildNumber:
-    Standalone: 3
+    Standalone: 7
     VisionOS: 0
-    iPhone: 3
+    iPhone: 7
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 4
+  AndroidBundleVersionCode: 8
   AndroidMinSdkVersion: 22
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1

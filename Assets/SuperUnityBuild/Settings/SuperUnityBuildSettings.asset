@@ -61,7 +61,7 @@ MonoBehaviour:
     openFolderPostBuild: 1
     constantsFileLocation: Assets\SuperUnityBuild
   _productParameters:
-    buildCounter: 3
+    buildCounter: 7
     buildVersion: 1.0.0
     versionTemplate: 1.0.0
     autoGenerate: 1
@@ -80,13 +80,13 @@ MonoBehaviour:
         releaseScenes:
         - fileGUID: d8b475557a28b0e4d83a7ddeb13eeedc
           sceneActive: 1
+        - fileGUID: da880b35474a8d443b4744ea050a3ed4
+          sceneActive: 1
         - fileGUID: 5b42e292395f1014aa94ad113baa1f1b
           sceneActive: 1
-        - fileGUID: b08f6662bd23b85499a268f0c87e22e5
+        - fileGUID: a38ff0db72784994ca4a899a41abfc7d
           sceneActive: 1
         - fileGUID: 460bad1238adc8045b7387e3f72ef0a3
-          sceneActive: 1
-        - fileGUID: ec9fcfc2d904b754ba082c22ec22d2c9
           sceneActive: 1
     - typeName: Release
       bundleIdentifier: com.unity.template.platformer
@@ -100,13 +100,13 @@ MonoBehaviour:
         releaseScenes:
         - fileGUID: d8b475557a28b0e4d83a7ddeb13eeedc
           sceneActive: 1
+        - fileGUID: da880b35474a8d443b4744ea050a3ed4
+          sceneActive: 1
         - fileGUID: 5b42e292395f1014aa94ad113baa1f1b
           sceneActive: 1
-        - fileGUID: b08f6662bd23b85499a268f0c87e22e5
+        - fileGUID: a38ff0db72784994ca4a899a41abfc7d
           sceneActive: 1
         - fileGUID: 460bad1238adc8045b7387e3f72ef0a3
-          sceneActive: 1
-        - fileGUID: ec9fcfc2d904b754ba082c22ec22d2c9
           sceneActive: 1
   _platformList:
     platforms:
@@ -191,7 +191,7 @@ MonoBehaviour:
     showBuildInfo: 0
     hideDisabled: 0
     treeView: 0
-    selectedKeyChain: Debug/PC/Windows x86 (App)/Mono
+    selectedKeyChain: Debug/macOS/macOS (Universal,App)/Mono
   _preBuildActions:
     buildActions: []
   _postBuildActions:
