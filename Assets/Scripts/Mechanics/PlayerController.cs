@@ -49,6 +49,7 @@ namespace Platformer.Mechanics
         readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public Bounds Bounds => collider2d.bounds;
+        public Rigidbody2D Rigidbody2D => body;
 
         public AnimalForm[] animalForms;
         public float formChangeTime = 5f;

@@ -22,11 +22,24 @@ MonoBehaviour:
     cooldown: 0
     duration: 0.3
     lockForm: 1
+    skillSearch:
+      rid: -2
     actions:
     - rid: 180327142003310607
+  - name: Dash
+    cooldown: 0
+    duration: 0.3
+    lockForm: 1
+    skillSearch:
+      rid: -2
+    actions:
+    - rid: 180327142003310617
+    - rid: 180327142003310620
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 180327142003310607
       type: {class: SetAnimation, ns: Config.SkillActions, asm: Assembly-CSharp}
       data:
@@ -37,3 +50,17 @@ MonoBehaviour:
       data:
         reset: 1
         name: attack1
+    - rid: 180327142003310617
+      type: {class: SetAnimation, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        actions:
+        - rid: 180327142003310618
+    - rid: 180327142003310618
+      type: {class: SetAnimationTrigger, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        reset: 1
+        name: dash
+    - rid: 180327142003310620
+      type: {class: AddVelocity, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        velocity: {x: 10, y: 0}
