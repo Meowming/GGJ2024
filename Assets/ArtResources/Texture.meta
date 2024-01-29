@@ -1,8 +1,14 @@
 fileFormatVersion: 2
-guid: 106baedd8eddbb14a9c7ab8608f4ddf0
+<<<<<<<< Updated upstream:Assets/ArtResources/Texture.meta
+guid: 5c81c045ee8480a40b10c910a33e9c94
 folderAsset: yes
 DefaultImporter:
+========
+guid: fdc1fa70bd9292e4390c105dcd96bbe0
+NativeFormatImporter:
+>>>>>>>> Stashed changes:Assets/ArtResources/Character/Animations/Cat/CatCute.anim.meta
   externalObjects: {}
+  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

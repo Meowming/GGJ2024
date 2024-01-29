@@ -28,12 +28,21 @@ MonoBehaviour:
     - rid: 180327142003310601
     - rid: 180327142003310606
     - rid: 180327142003310612
-  - name: SpinAttack
+  - name: RangeAttack
     cooldown: 0
     duration: 5
     lockForm: 1
     skillSearch:
       rid: -2
+    actions:
+    - rid: 4563729275574550531
+    - rid: 4563729275574550536
+  - name: SpinAttack
+    cooldown: 0
+    duration: 5
+    lockForm: 1
+    skillSearch:
+      rid: 4563729275574550528
     actions:
     - rid: 180327142003310609
   references:
@@ -79,3 +88,26 @@ MonoBehaviour:
       type: {class: CastDamage, ns: Config.SkillActions, asm: Assembly-CSharp}
       data:
         damage: 1
+    - rid: 4563729275574550528
+      type: {class: SkillSearchBox, ns: Config.SkillSearch, asm: Assembly-CSharp}
+      data:
+        center: {x: 0, y: 0}
+        size: {x: 0, y: 0}
+        distance: 0
+    - rid: 4563729275574550531
+      type: {class: SetAnimation, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        actions:
+        - rid: 4563729275574550533
+    - rid: 4563729275574550533
+      type: {class: SetAnimationBool, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        reset: 1
+        name: rangeAttack
+        value: 1
+    - rid: 4563729275574550536
+      type: {class: ModifyGravity, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        gravity: 2
+        relative: 1
+        reset: 1

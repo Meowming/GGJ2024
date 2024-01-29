@@ -28,6 +28,14 @@ MonoBehaviour:
     - rid: 180327142003310607
     - rid: 180327142003310622
     - rid: 180327142003310623
+  - name: Cute
+    cooldown: 0
+    duration: 3
+    lockForm: 1
+    skillSearch:
+      rid: -2
+    actions:
+    - rid: 4563729275574550537
   - name: Dash
     cooldown: 0
     duration: 0.3
@@ -91,3 +99,14 @@ MonoBehaviour:
           type: 3}
         offset: {x: 0, y: 0}
         delay: 0
+    - rid: 4563729275574550537
+      type: {class: SetAnimation, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        actions:
+        - rid: 4563729275574550538
+    - rid: 4563729275574550538
+      type: {class: SetAnimationBool, ns: Config.SkillActions, asm: Assembly-CSharp}
+      data:
+        reset: 1
+        name: cute
+        value: 1

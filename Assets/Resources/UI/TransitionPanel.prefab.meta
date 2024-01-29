@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 09fc52f4c36ab5b4f8f7ecccbf3cc5a7
+<<<<<<<< Updated upstream:Assets/Resources/UI/TransitionPanel.prefab.meta
+guid: 3b7b45be194b3e6488825c7914ed75b0
 PrefabImporter:
+========
+guid: 9ec91f1bb3fc5df4c832c3b9a46fe924
+NativeFormatImporter:
+>>>>>>>> Stashed changes:Assets/ArtResources/Character/Animations/TurtleShoot.anim.meta
   externalObjects: {}
+  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

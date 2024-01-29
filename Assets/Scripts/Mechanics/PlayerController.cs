@@ -99,13 +99,13 @@ namespace Platformer.Mechanics
                 {
                     stopJump = true;
                     Schedule<PlayerStopJump>().player = this;
-                } else if (Input.GetButtonDown("Fire1"))
+                } else if (Input.GetButtonDown("Skill1"))
                 {
                     CastSkill(0);
-                } else if (Input.GetButtonDown("Fire2"))
+                } else if (Input.GetButtonDown("Skill2"))
                 {
                     CastSkill(1);
-                } else if (Input.GetButtonDown("Fire3"))
+                } else if (Input.GetButtonDown("Skill3"))
                 {
                     CastSkill(2);
                 }

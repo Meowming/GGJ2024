@@ -74,7 +74,11 @@ namespace Platformer.Mechanics
 
         protected virtual void OnEnable()
         {
-            body = GetComponent<Rigidbody2D>();
+            body = GetComponentInParent<Rigidbody2D>();
+            if (body == null)
+            {
+                body = GetComponent<Rigidbody2D>();
+            }
             body.isKinematic = true;
         }
 

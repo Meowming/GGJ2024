@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: b78ce40fdd0c64047a63857288259edb
+<<<<<<<< Updated upstream:Assets/Resources/UI/Level1Panel.prefab.meta
+guid: c57f5eb1202288f4e87d5ae1f7c4072a
 PrefabImporter:
+========
+guid: bcaf6c0a2b485e04482a58300dedf93e
+NativeFormatImporter:
+>>>>>>>> Stashed changes:Assets/ArtResources/Character/Animations/Player 1.controller.meta
   externalObjects: {}
+  mainObjectFileID: 9100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
