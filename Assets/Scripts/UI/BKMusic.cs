@@ -15,19 +15,10 @@ public class BKMusic : MonoBehaviour
 
         bkSource = GetComponent<AudioSource>();
 
-        //通过数据 来设置 音乐的大小和开关
         MusicData data = GameDataMgr.Instance.musicData;
-        //SetIsOpen(data.musicOpen);
+
         ChangeValue(data.musicValue);
     }
-
-    ////开关背景音乐的方法
-    //public void SetIsOpen(bool isOpen)
-    //{
-    //    bkSource.mute = !isOpen;
-    //}
-
-    //调整被背景音乐大小的方法
     public void ChangeValue(float v)
     {
         bkSource.volume = v;

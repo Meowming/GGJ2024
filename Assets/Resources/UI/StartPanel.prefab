@@ -95,6 +95,7 @@ MonoBehaviour:
   StartButton: {fileID: 5665408118520558958}
   SettingButton: {fileID: 4525121283145986648}
   QuitButton: {fileID: 4861642696055766621}
+  animation: {fileID: 0}
 --- !u!1 &6792020570701482215
 GameObject:
   m_ObjectHideFlags: 0

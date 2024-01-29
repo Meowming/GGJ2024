@@ -11,13 +11,15 @@ public class StartPanel : BasePanel
     public Button SettingButton;
 
     public Button QuitButton;
+
+    public Animation animation;
     public override void Init()
     {
         StartButton.onClick.AddListener(() =>
         {
             UIManager.Instance.HidePanel<StartPanel>();
 
-            SceneManager.LoadScene("Level1");
+            UIManager.Instance.ShowPanel<TransitionPanel>();
         });
 
         SettingButton.onClick.AddListener(() =>

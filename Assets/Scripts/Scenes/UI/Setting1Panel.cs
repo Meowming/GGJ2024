@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingPanel : BasePanel
+public class Setting1Panel : BasePanel
 {
     public Button btnClose;
 
+    public Button btnQuit;
+
     public Slider sliderMusic;
-
-    //public Slider sliderSound;
-
     public override void Init()
     {
         MusicData data = GameDataMgr.Instance.musicData;
@@ -21,7 +20,12 @@ public class SettingPanel : BasePanel
         {
             GameDataMgr.Instance.SaveMusicData();
 
-            UIManager.Instance.HidePanel<SettingPanel>();
+            UIManager.Instance.HidePanel<Setting1Panel>();
+        });
+
+        btnQuit.onClick.AddListener(() =>
+        {
+            Application.Quit();
         });
 
         sliderMusic.onValueChanged.AddListener((v) =>
