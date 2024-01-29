@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: a46e0c3e5bc7417498b1eb18dae80333
+<<<<<<<< Updated upstream:Assets/Resources/UI/Setting1Panel.prefab.meta
+guid: 2a54a39f9724dab40a798d52ca6a61a4
 PrefabImporter:
+========
+guid: a7426ecfa40dc74439590611471f1a2f
+NativeFormatImporter:
+>>>>>>>> Stashed changes:Assets/ArtResources/Character/Animations/TurtleAttackRange.anim.meta
   externalObjects: {}
+  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

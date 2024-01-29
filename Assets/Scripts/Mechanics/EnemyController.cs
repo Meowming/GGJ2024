@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Platformer.Gameplay;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Platformer.Core.Simulation;
 
@@ -9,7 +10,6 @@ namespace Platformer.Mechanics
     /// <summary>
     /// A simple controller for enemies. Provides movement control over a patrol path.
     /// </summary>
-    [RequireComponent(typeof(AnimationController), typeof(Collider2D))]
     public class EnemyController : MonoBehaviour
     {
         public PatrolPath path;
@@ -30,7 +30,7 @@ namespace Platformer.Mechanics
 
         void Awake()
         {
-            control = GetComponent<AnimationController>();
+            control = GetComponentInChildren<AnimationController>();
             _collider = GetComponent<Collider2D>();
             _audio = GetComponent<AudioSource>();
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -65,9 +65,26 @@ namespace Platformer.Mechanics
             control.animator.SetTrigger(Hurt);
             if (!health.IsAlive) {
                 control.animator.SetTrigger(Death);
+                //_rigidbody2D.AddForce(new Vector2(Random.Range(20f, 100f), Random.Range(20f, 100f)));
                 _collider.enabled = false;
                 _rigidbody2D.bodyType = RigidbodyType2D.Static;
+                _rigidbody2D.simulated = false;
             }
         }
+
+        IEnumerator EnemyRandomMovement()
+        {
+            float timer = 0f;
+            int direction = Random.Range(-1, 2);
+            timer += Time.deltaTime;
+            //TODO: remove hard coded numbers
+            float timeLimit = Random.Range(1f, 10f);
+            while (timer <= timeLimit)
+            {
+                //_rigidbody2D.MovePosition()
+            }
+            yield break;
+        }
+        
     }
 }
